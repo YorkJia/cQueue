@@ -1,3 +1,6 @@
+# License
+	MIT License,all the people can use it for free, and thanks for uC/OS.
+
 # Usage
 	cQueue is message queue, is written in ANSI C in order to support as many platforms and compilers as possible.
 	
