@@ -16,14 +16,7 @@ int main(int argc, char *argv[]) {
 	
 	pq = cQcreate(110);
 	
-	/*
-	pmsg = (int *)malloc(10*sizeof(int));
-		for(j = 0; j < 10; j++){
-			pmsg[j] = j;
-		}
-		cQPost(pq, (void *)pmsg);
-	*/	
-		
+     	/* cQPost ...*/		
 	for(i = 0; i < 100; i++){
 		pmsg = (int *)malloc(10*sizeof(int));
 		for(j = 0; j < 10; j++){
@@ -32,12 +25,14 @@ int main(int argc, char *argv[]) {
 		cQPost(pq, (void *)pmsg);
 	}
 	
+	/* cQPostFront...*/
 	pmsg = (int *)malloc(10*sizeof(int));
 	for(j = 0; j < 10; j++){
 		pmsg[j] = 1000 + j;
 	}
 	cQPostFront(pq, (void *)pmsg);
 	
+	/* cQRcv...*/
 	for(j = 0; j < 101; j++){
 		prx = (int *)cQRcv(pq, &perr);
 		printf("prx%3d:", j);
@@ -48,27 +43,8 @@ int main(int argc, char *argv[]) {
 	}
 	
 	
-	printf("before free addr:%ld\n", pq);
 	cQDelete(pq);
-	printf("after free addr:%ld\n", pq);
-	
-	pmsg = (int *)malloc(10*sizeof(int));
-	for(j = 0; j < 10; j++){
-		pmsg[j] = j;
-	}
-	cQPost(pq, (void *)pmsg);
-	
-	prx = (int *)cQRcv(pq, &perr);
-	printf("prx%3d:", j);
-	for(i = 0; i < 10; i++){
-		printf("<%4d>", prx[i]);
-	}
-	printf("\n");
-	
 
-	
-	
-	
 	return 0;
 }
 
