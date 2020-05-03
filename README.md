@@ -1,7 +1,7 @@
-#Usage
+# Usage
 	cQueue is message queue, is written in ANSI C in order to support as many platforms and compilers as possible.
 	
-#Data Structure
+# Data Structure
 	cQueue using the cQueue struct data type:
 ```C
 /*---------------The cQueue structure ------------------------------------------------------------*/
